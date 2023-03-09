@@ -18,10 +18,25 @@ use App\Http\Controllers\SobreController;
 
 Route::get('/', [PrincipalController::class, 'mostrarPrincipal']);
 
-
 Route::get('/sobre', [SobreController::class, 'mostrarSobre']);
 
 Route::get('/contato', [ContatoController::class,'mostrarContato']);
+
+Route::get('/login', function(){
+    return 'teste';
+});
+
+Route::get('/clientes', function(){
+    return 'teste';
+});
+
+Route::get('/fornecedores', function(){
+    return 'teste';
+});
+
+Route::get('/produtos', function(){
+    return 'teste';
+});
 
 // Route::get(
 //     '/contato/{nome}/{categoria_id}',
