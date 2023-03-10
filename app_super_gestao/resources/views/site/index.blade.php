@@ -1,22 +1,38 @@
-<h1>Fornecedor </h1>
+<h3 align='center'>Lista Fornecedores</h3>
 
-{{-- Comentários --}}  
+{{-- Operador Variavel Loop no Blade --}}
 
-@php
+@isset($fornecedores) 
+  @forelse ($fornecedores as $indice=>$fornecedor)
+  Iteração atual: {{ $loop->iteration }}
 
-//Comentário de uma linha.
-/*
-Comentário de múltiplas linhas.
-*/
+  {{-- @php echo var_dump($loop) @endphp --}}
 
-@endphp
+  
+  @if($loop->first)
+    Primeira iteração do loop
+  @endif
 
-{{-- @dd($fornecedores) --}}
+  @if($loop->last)
+    Ultima iteração do loop
+  @endif
 
-@if(count($fornecedores)>0 && count($fornecedores)<10 )
-  <h3>Existem alguns fornecedores cadastrados</h3>
-@elseif(count($fornecedores)>10)
-  <h3>Existem vários fornecedores cadastrados</h3>
-@else
-  <h3>Ainda não existem fornecedores cadastrados</h3>
-@endif
+  <pre>
+      </br>
+    Fornecedor: {{$fornecedor['nome']}}
+    </br>
+    Status:{{$fornecedor['status']}}
+    </br>
+    CNPJ:{{$fornecedor['cnpj'] ?? "Dado não foi informado" }}
+    </br>
+    Telefone: {{$fornecedor['ddd'] ? '('.($fornecedor['ddd']).')':'' }} {{$fornecedor['telefone'] ?? ''}}
+    </br>
+    <hr>
+    @empty
+    Não existem fornecedores cadastrados
+  </pre>
+
+
+
+  @endforelse  
+@endisset
