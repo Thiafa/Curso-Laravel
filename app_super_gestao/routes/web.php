@@ -23,6 +23,7 @@ Route::get('/', [PrincipalController::class, 'mostrarPrincipal'])->name('site.in
 Route::get('/sobre', [SobreController::class, 'mostrarSobre'])->name('site.sobrenos');
 
 Route::get('/contato', [ContatoController::class,'mostrarContato'])->name('site.contato');
+Route::post('/contato', [ContatoController::class,'mostrarContato'])->name('site.contato');
 
 Route::get('/login', function(){
     return 'teste';
